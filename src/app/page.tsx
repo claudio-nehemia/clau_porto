@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import Image from 'next/image';
 
 const skills = [ 
     {name: "Web Development",
@@ -185,13 +186,21 @@ const projects = [
 // Advanced Floating geometric shapes with particles
 const FloatingShapes = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [particles, setParticles] = useState<{left: string, top: string}[]>([]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
+
+    // Generate random positions only on client
+    const arr = Array.from({ length: 8 }, () => ({
+      left: `${Math.random() * 80 + 10}%`, // 10% - 90%
+      top: `${Math.random() * 80 + 10}%`,  // 10% - 90%
+    }));
+    setParticles(arr);
+
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
@@ -245,15 +254,15 @@ const FloatingShapes = () => {
       ></div>
 
       {/* Floating particles */}
-      {[...Array(8)].map((_, i) => (
+      {particles.map((pos, i) => (
         <div
           key={i}
           className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full animate-particle"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: pos.left,
+            top: pos.top,
             animationDelay: `${i * 2}s`,
-            animationDuration: `${8 + Math.random() * 4}s`
+            animationDuration: `${8 + i * 0.5}s`
           }}
         ></div>
       ))}
@@ -443,27 +452,35 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const ImagePlaceholder = ({ className = "", alt, src = "" }: { className?: string, alt: string, src?: string }) => (
-  <div className={`relative rounded-2xl overflow-hidden group ${className}`}>
-    <img 
-      src={src || "/api/placeholder/400/300"} 
-      alt={alt}
-      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-      onError={(e) => {
-        const target = e.target as HTMLImageElement;
-        target.style.display = 'none';
-        const placeholder = target.nextElementSibling as HTMLElement;
-        if (placeholder) placeholder.style.display = 'flex';
-      }}
-    />
-    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-dashed border-gray-300 rounded-2xl flex items-center justify-center hover:from-blue-50 hover:to-purple-50 hover:border-blue-300 transition-all duration-500 hidden">
-      <div className="text-center text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
-        <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">📷</div>
-        <div className="text-sm font-medium">{alt}</div>
+const ImagePlaceholder = ({ className = "", alt, src = "" }: { className?: string, alt: string, src?: string }) => {
+  const [imageError, setImageError] = useState(false);
+  
+  if (!src || imageError) {
+    return (
+      <div className={`relative rounded-2xl overflow-hidden group ${className}`}>
+        <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-dashed border-gray-300 rounded-2xl flex items-center justify-center hover:from-blue-50 hover:to-purple-50 hover:border-blue-300 transition-all duration-500">
+          <div className="text-center text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
+            <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">📷</div>
+            <div className="text-sm font-medium">{alt}</div>
+          </div>
+        </div>
       </div>
+    );
+  }
+
+  return (
+    <div className={`relative rounded-2xl overflow-hidden group ${className}`}>
+      <Image 
+        src={src} 
+        alt={alt}
+        width={400}
+        height={300}
+        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+        onError={() => setImageError(true)}
+      />
     </div>
-  </div>
-);
+  );
+};
 
 const SkillBadge = ({ skill, delay = 0 }: { skill: string, delay?: number }) => {
   const [ref, isVisible] = useScrollAnimation();
