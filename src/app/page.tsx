@@ -419,7 +419,7 @@ const AnimatedCard = ({ children, className = "", delay = 0 }: {
   return (
     <div 
       ref={ref}
-      className={`bg-white/70 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 transition-all duration-700 hover:shadow-3xl hover:transform hover:scale-105 hover:bg-white/80 group relative overflow-hidden ${
+      className={`bg-white/70 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-xl border border-white/20 transition-all duration-700 hover:shadow-2xl hover:transform hover:scale-105 hover:bg-white/80 group relative overflow-hidden ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       } ${className}`}
       style={{ 
@@ -439,13 +439,13 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <div ref={ref} className="text-center mb-16">
-      <h2 className={`text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent transition-all duration-1000 ${
+    <div ref={ref} className="text-center mb-8 sm:mb-12">
+      <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
       }`}>
         {children}
       </h2>
-      <div className={`w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full transition-all duration-1000 delay-300 ${
+      <div className={`w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full transition-all duration-1000 delay-300 ${
         isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
       }`}></div>
     </div>
@@ -488,7 +488,7 @@ const SkillBadge = ({ skill, delay = 0 }: { skill: string, delay?: number }) => 
   return (
     <span 
       ref={ref}
-      className={`px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-gray-700 rounded-full text-sm font-medium hover:from-blue-200 hover:to-purple-200 transition-all duration-500 border border-blue-200/50 shadow-sm hover:shadow-md transform hover:scale-110 hover:rotate-1 cursor-default ${
+      className={`px-2 sm:px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:from-blue-200 hover:to-purple-200 transition-all duration-500 border border-blue-200/50 shadow-sm hover:shadow-md transform hover:scale-110 hover:rotate-1 cursor-default ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
       }`}
       style={{ transitionDelay: `${delay}ms` }}
@@ -535,65 +535,65 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-20 relative">
-        <div className="max-w-5xl mx-auto text-center z-10">
-          <div className="mb-8 sm:mb-12 animate-fade-in">
+      <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-16 relative">
+        <div className="max-w-4xl mx-auto text-center z-10">
+          <div className="mb-6 sm:mb-8 animate-fade-in">
             <div className="relative group">
               <ImagePlaceholder 
-                className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 mx-auto mb-6 sm:mb-8 shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-2" 
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4 sm:mb-6 shadow-xl transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-2" 
                 alt="Profile Photo" 
                 src="/images/profile.jpg"
               />
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-xl opacity-20 animate-pulse group-hover:opacity-30 transition-opacity duration-500"></div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-slide-up leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-slide-up leading-tight">
             <TypewriterText text="Claudio Nehemia" delay={500} />
             <br />
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
               <TypewriterText text="Panggabean" delay={2000} />
             </span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 sm:mb-8 animate-slide-up-delay-1 font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 animate-slide-up-delay-1 font-medium">
             <TypewriterText text="Software Engineer" delay={3500} />
           </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-6 sm:mb-8 animate-slide-up-delay-2">
-            <div className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full border border-emerald-200 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
-              <p className="text-base sm:text-lg text-gray-700 font-semibold">GPA: 3.90</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 mb-4 sm:mb-6 animate-slide-up-delay-2">
+            <div className="px-3 sm:px-4 py-2 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full border border-emerald-200 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
+              <p className="text-sm sm:text-base text-gray-700 font-semibold">GPA: 3.90</p>
             </div>
-            <div className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full border border-blue-200 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
-              <p className="text-base sm:text-lg text-gray-700 font-medium">Mercubuana University</p>
+            <div className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full border border-blue-200 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
+              <p className="text-sm sm:text-base text-gray-700 font-medium">Mercubuana University</p>
             </div>
           </div>
-          <p className="text-base sm:text-lg text-gray-600 animate-slide-up-delay-3 font-medium">Informatics Engineering</p>
+          <p className="text-sm sm:text-base text-gray-600 animate-slide-up-delay-3 font-medium">Informatics Engineering</p>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="about" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <SectionTitle>About Me</SectionTitle>
-          <AnimatedCard className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
+          <AnimatedCard className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
               <div className="relative group order-2 md:order-1">
                 <ImagePlaceholder 
-                  className="w-full h-64 sm:h-72 md:h-80 shadow-xl transform transition-all duration-500 group-hover:scale-105" 
+                  className="w-full h-48 sm:h-56 md:h-64 shadow-lg transform transition-all duration-500 group-hover:scale-105" 
                   alt="About Photo" 
                   src="/images/about.jpg"
                 />
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-300 to-purple-400 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <div className="absolute -inset-3 bg-gradient-to-r from-blue-300 to-purple-400 rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
               </div>
-              <div className="space-y-4 sm:space-y-6 order-1 md:order-2">
-                <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="space-y-3 sm:space-y-4 order-1 md:order-2">
+                <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Passionate Software Developer
                 </h3>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   I am a dedicated software engineer with a strong background in full-stack development, 
                   mobile applications, and machine learning. With hands-on experience in various technologies 
                   and frameworks, I enjoy creating innovative solutions that make a positive impact.
                 </p>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   Currently pursuing my degree in Informatics with a GPA of 3.90, I am passionate about 
                   continuous learning and staying updated with the latest technologies in the software development world.
                 </p>
@@ -604,22 +604,22 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="skills" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <SectionTitle>Skills & Technologies</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {skills.map((category, index) => (
-              <AnimatedCard key={index} className="h-full hover:shadow-2xl" delay={index * 150}>
-                <div className="mb-4 sm:mb-6 relative group">
+              <AnimatedCard key={index} className="h-full hover:shadow-xl" delay={index * 150}>
+                <div className="mb-3 sm:mb-4 relative group">
                   <ImagePlaceholder 
-                    className="w-full h-28 sm:h-32 md:h-36 shadow-lg transform transition-all duration-500 group-hover:scale-105" 
+                    className="w-full h-20 sm:h-24 md:h-28 shadow-md transform transition-all duration-500 group-hover:scale-105" 
                     alt={`${category.name} Icon`} 
                     src={`/images/skills/${category.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
                   />
-                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-200 to-purple-300 rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-200 to-purple-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-gray-800">{category.name}</h3>
-                <div className="flex flex-wrap gap-2 sm:gap-3">
+                <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-gray-800">{category.name}</h3>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <SkillBadge key={skillIndex} skill={skill} delay={skillIndex * 100} />
                   ))}
@@ -631,31 +631,31 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="experience" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <SectionTitle>Experience</SectionTitle>
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-4 sm:space-y-6">
             {experiences.map((exp, index) => (
-              <AnimatedCard key={index} className="hover:shadow-2xl" delay={index * 200}>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 items-center">
+              <AnimatedCard key={index} className="hover:shadow-xl" delay={index * 200}>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 items-center">
                   <div className="md:col-span-1 relative group">
                     <ImagePlaceholder 
-                      className="w-full h-20 sm:h-24 md:h-28 shadow-lg transform transition-all duration-500 group-hover:scale-105" 
+                      className="w-full h-16 sm:h-20 md:h-24 shadow-md transform transition-all duration-500 group-hover:scale-105" 
                       alt={`${exp.name} Logo`} 
                       src={`/images/companies/${exp.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
                     />
-                    <div className="absolute -inset-2 bg-gradient-to-r from-emerald-200 to-teal-300 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald-200 to-teal-300 rounded-lg blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                   </div>
                   <div className="md:col-span-3">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{exp.name}</h3>
-                      <span className="px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 rounded-full text-xs sm:text-sm font-medium border border-emerald-200 transform hover:scale-105 transition-all duration-300 w-fit">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-800">{exp.name}</h3>
+                      <span className="px-2 sm:px-3 py-1 bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 rounded-full text-xs font-medium border border-emerald-200 transform hover:scale-105 transition-all duration-300 w-fit">
                         {exp.status}
                       </span>
                     </div>
-                    <p className="text-lg sm:text-xl text-gray-700 mb-2 font-semibold">{exp.position}</p>
-                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 font-medium">{exp.duration}</p>
-                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{exp.job_description}</p>
+                    <p className="text-base sm:text-lg text-gray-700 mb-1 font-semibold">{exp.position}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 font-medium">{exp.duration}</p>
+                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">{exp.job_description}</p>
                   </div>
                 </div>
               </AnimatedCard>
@@ -665,28 +665,28 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="projects" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <SectionTitle>Projects</SectionTitle>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {projects.map((project, index) => (
-              <AnimatedCard key={index} className="h-full hover:shadow-2xl group" delay={index * 100}>
-                <div className="mb-4 sm:mb-6 relative overflow-hidden rounded-2xl">
+              <AnimatedCard key={index} className="h-full hover:shadow-xl group" delay={index * 100}>
+                <div className="mb-3 sm:mb-4 relative overflow-hidden rounded-xl">
                   <ImagePlaceholder 
-                    className="w-full h-40 sm:h-48 md:h-52 shadow-lg transform transition-all duration-700 group-hover:scale-110" 
+                    className="w-full h-32 sm:h-40 md:h-44 shadow-md transform transition-all duration-700 group-hover:scale-110" 
                     alt={`${project.name} Screenshot`} 
                     src={`/images/projects/${project.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
                   />
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cyan-200 to-blue-300 rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-200 to-blue-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800">{project.name}</h3>
-                  <span className="px-2 sm:px-3 py-1 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 rounded-full text-xs sm:text-sm font-medium border border-cyan-200 transform hover:scale-105 transition-all duration-300 w-fit">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-800">{project.name}</h3>
+                  <span className="px-2 py-1 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 rounded-full text-xs font-medium border border-cyan-200 transform hover:scale-105 transition-all duration-300 w-fit">
                     {project.timeline}
                   </span>
                 </div>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{project.description}</p>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">{project.description}</p>
               </AnimatedCard>
             ))}
           </div>
@@ -694,28 +694,28 @@ export default function Home() {
       </section>
 
       {/* Achievements Section */}
-      <section id="achievements" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="achievements" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <SectionTitle>Achievements</SectionTitle>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {achievements.map((achievement, index) => (
-              <AnimatedCard key={index} className="h-full hover:shadow-2xl group" delay={index * 200}>
-                <div className="flex items-start gap-4 sm:gap-6">
+              <AnimatedCard key={index} className="h-full hover:shadow-xl group" delay={index * 200}>
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex-shrink-0 relative group">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-lg sm:text-2xl shadow-md transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
                       {achievement.icon === 'medal' ? '🏅' : '🏆'}
                     </div>
-                    <div className="absolute -inset-2 bg-gradient-to-r from-yellow-300 to-orange-400 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-300 to-orange-400 rounded-full blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-800">{achievement.title}</h3>
-                      <span className="px-2 sm:px-3 py-1 bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-700 rounded-full text-xs sm:text-sm font-medium border border-yellow-200 transform hover:scale-105 transition-all duration-300 w-fit">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-800">{achievement.title}</h3>
+                      <span className="px-2 py-1 bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-700 rounded-full text-xs font-medium border border-yellow-200 transform hover:scale-105 transition-all duration-300 w-fit">
                         {achievement.date}
                       </span>
                     </div>
-                    <p className="text-base sm:text-lg text-blue-600 font-semibold mb-2 sm:mb-3">{achievement.organization}</p>
-                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{achievement.description}</p>
+                    <p className="text-sm sm:text-base text-blue-600 font-semibold mb-1 sm:mb-2">{achievement.organization}</p>
+                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">{achievement.description}</p>
                   </div>
                 </div>
               </AnimatedCard>
@@ -725,39 +725,39 @@ export default function Home() {
       </section>
 
       {/* Social Media Section */}
-      <section id="social" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="social" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <SectionTitle>Connect With Me</SectionTitle>
-          <AnimatedCard className="max-w-4xl mx-auto">
-            <div className="text-center mb-6 sm:mb-8">
-              <p className="text-lg sm:text-xl text-gray-700 font-medium">Let's connect and collaborate!</p>
-              <p className="text-sm sm:text-base text-gray-600 mt-2">Feel free to reach out through any of these platforms</p>
+          <AnimatedCard className="max-w-3xl mx-auto">
+            <div className="text-center mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg text-gray-700 font-medium">Let's connect and collaborate!</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">Feel free to reach out through any of these platforms</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {social_media.map((social, index) => (
                 <a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group bg-white/80 backdrop-blur-lg rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200/50 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:bg-white/90 ${social.color} transform hover:-translate-y-2`}
+                  className={`group bg-white/80 backdrop-blur-lg rounded-xl p-3 sm:p-4 shadow-md border border-gray-200/50 transition-all duration-500 hover:shadow-lg hover:scale-105 hover:bg-white/90 ${social.color} transform hover:-translate-y-1`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className="text-center">
-                    <div className="mb-3 sm:mb-4 relative">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-                        {social.icon === 'instagram' && <FaInstagram className="text-xl sm:text-3xl text-pink-500" />}
-                        {social.icon === 'linkedin' && <FaLinkedin className="text-xl sm:text-3xl text-blue-600" />}
-                        {social.icon === 'github' && <FaGithub className="text-xl sm:text-3xl text-gray-800" />}
-                        {social.icon === 'email' && <SiGmail className="text-xl sm:text-3xl text-red-500" />}
+                    <div className="mb-2 sm:mb-3 relative">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-md transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
+                        {social.icon === 'instagram' && <FaInstagram className="text-lg sm:text-2xl text-pink-500" />}
+                        {social.icon === 'linkedin' && <FaLinkedin className="text-lg sm:text-2xl text-blue-600" />}
+                        {social.icon === 'github' && <FaGithub className="text-lg sm:text-2xl text-gray-800" />}
+                        {social.icon === 'email' && <SiGmail className="text-lg sm:text-2xl text-red-500" />}
                       </div>
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-200 to-purple-300 rounded-full blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-200 to-purple-300 rounded-full blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
                     </div>
-                    <h3 className="text-sm sm:text-lg font-bold text-gray-800 group-hover:text-current transition-colors duration-300">
+                    <h3 className="text-xs sm:text-sm font-bold text-gray-800 group-hover:text-current transition-colors duration-300">
                       {social.name}
                     </h3>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl"></div>
                 </a>
               ))}
             </div>
@@ -766,9 +766,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 sm:py-16 px-4 sm:px-6 border-t border-gray-200/50 bg-white/60 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-sm sm:text-base text-gray-600 font-medium">© 2025 Claudio Nehemia Panggabean. All rights reserved.</p>
+      <footer className="py-8 sm:py-12 px-4 sm:px-6 border-t border-gray-200/50 bg-white/60 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-xs sm:text-sm text-gray-600 font-medium">© 2025 Claudio Nehemia Panggabean. All rights reserved.</p>
         </div>
       </footer>
     </div>
