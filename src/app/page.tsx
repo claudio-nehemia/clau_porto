@@ -146,10 +146,16 @@ const projects = [
     timeline: 2025,
     description: "A web application for managing machine and heavy equipment e-commerce using React in Frontend and Laravel in Backend"
   },
+  
   {
-    name: "PANDU PEKA",
+    name: "Suarguard",
     timeline: 2025,
-    description: "A disaster management application designed to assist both rescue teams and communities during natural disaster evacuations. The app provides real-time disaster information, evacuation guidance, and integrates machine learning models for prediction. Built with Flutter for the mobile frontend, Flask and FastAPI for the backend and ML logic, and Django for the web-based admin dashboard."
+    description: "A mobile application focused on sexual harassment prevention and protection. Victims can send emergency signals to dedicated task forces for immediate assistance when facing threats. Developed using Java for the mobile platform."
+  },
+  {
+    name: "Cuan Limbah Apps",
+    timeline: 2025,
+    description: "A mobile application for waste-to-points exchange, where users can deposit waste at collection centers and receive reward points stored in the app for future use. Developed as a mobile-first solution."
   },
   {
     name: "Juravest",
@@ -162,25 +168,20 @@ const projects = [
     description: "A web application for managing clothing printing services and clothes e-commerce using Blade in Frontend and Laravel in Backend"
   },
   {
-    name: "Suarguard",
-    timeline: 2025,
-    description: "A mobile application focused on sexual harassment prevention and protection. Victims can send emergency signals to dedicated task forces for immediate assistance when facing threats. Developed using Java for the mobile platform."
-  },
-  {
     name: "Simfan",
     timeline: 2025,
     description: "A web application for managing deposit loans, enabling users to borrow or manage their deposit-based finances in a secure and transparent way. Developed using Next.js for modern and scalable web experience."
   },
   {
-    name: "Announced Later",
+    name: "Mauk Pintar Website",
     timeline: 2025,
     description: "A web catalog application showcasing recycled products, aiming to promote sustainability and eco-friendly practices. Developed using React for the frontend and Laravel for the backend."
   },
   {
-    name: "Announced Later",
+    name: "PANDU PEKA",
     timeline: 2025,
-    description: "A mobile application for waste-to-points exchange, where users can deposit waste at collection centers and receive reward points stored in the app for future use. Developed as a mobile-first solution."
-  }
+    description: "A disaster management application designed to assist both rescue teams and communities during natural disaster evacuations. The app provides real-time disaster information, evacuation guidance, and integrates machine learning models for prediction. Built with Flutter for the mobile frontend, Flask and FastAPI for the backend and ML logic, and Django for the web-based admin dashboard."
+  },
 ]
 
 // Advanced Floating geometric shapes with particles
@@ -542,7 +543,7 @@ export default function Home() {
               <ImagePlaceholder 
                 className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-4 sm:mb-6 shadow-xl transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-2" 
                 alt="Profile Photo" 
-                src="/images/profile.jpg"
+                src="/claudio.jpg"
               />
               <div className="absolute -inset-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-xl opacity-20 animate-pulse group-hover:opacity-30 transition-opacity duration-500"></div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -577,12 +578,11 @@ export default function Home() {
           <AnimatedCard className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
               <div className="relative group order-2 md:order-1">
-                <ImagePlaceholder 
-                  className="w-full h-48 sm:h-56 md:h-64 shadow-lg transform transition-all duration-500 group-hover:scale-105" 
-                  alt="About Photo" 
-                  src="/images/about.jpg"
+                <ImagePlaceholder
+                  className="w-full object-contain shadow-lg transform transition-all duration-500 group-hover:scale-105"
+                  alt="About Photo"
+                  src="/about.png"
                 />
-                <div className="absolute -inset-3 bg-gradient-to-r from-blue-300 to-purple-400 rounded-2xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
               </div>
               <div className="space-y-3 sm:space-y-4 order-1 md:order-2">
                 <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -640,7 +640,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 items-center">
                   <div className="md:col-span-1 relative group">
                     <ImagePlaceholder 
-                      className="w-full h-16 sm:h-20 md:h-24 shadow-md transform transition-all duration-500 group-hover:scale-105" 
+                      className="w-full max-h-80 object-contain shadow-md transform transition-all duration-500 group-hover:scale-105" 
                       alt={`${exp.name} Logo`} 
                       src={`/images/companies/${exp.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
                     />
@@ -673,7 +673,7 @@ export default function Home() {
               <AnimatedCard key={index} className="h-full hover:shadow-xl group" delay={index * 100}>
                 <div className="mb-3 sm:mb-4 relative overflow-hidden rounded-xl">
                   <ImagePlaceholder 
-                    className="w-full h-32 sm:h-40 md:h-44 shadow-md transform transition-all duration-700 group-hover:scale-110" 
+                    className="w-full object-contain shadow-md transform transition-all duration-700 group-hover:scale-110" 
                     alt={`${project.name} Screenshot`} 
                     src={`/images/projects/${project.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
                   />
@@ -694,12 +694,22 @@ export default function Home() {
       </section>
 
       {/* Achievements Section */}
+      {/* Achievements Section */}
       <section id="achievements" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative">
         <div className="max-w-6xl mx-auto">
           <SectionTitle>Achievements</SectionTitle>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {achievements.map((achievement, index) => (
               <AnimatedCard key={index} className="h-full hover:shadow-xl group" delay={index * 200}>
+                <div className="mb-3 sm:mb-4 relative overflow-hidden rounded-xl">
+                  <ImagePlaceholder
+                    className="w-full max-h-80 object-contain shadow-md transform transition-all duration-700 group-hover:scale-110 bg-white p-2 rounded-lg"
+                    alt={`${achievement.title} Certificate`}
+                    src={`/images/achievements/${achievement.title.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                  />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-200 to-orange-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </div>
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex-shrink-0 relative group">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-lg sm:text-2xl shadow-md transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
