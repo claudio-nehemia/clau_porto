@@ -70,7 +70,7 @@ const skills = [
 const social_media = [
   {
     name: "Instagram",
-    url: "https://www.instagram.com/claudionehemia_12",
+    url: "https://www.instagram.com/claudionehemia_",
     icon: "instagram",
     color: "hover:text-pink-500"
   },
