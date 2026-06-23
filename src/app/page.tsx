@@ -3,11 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import Image from "next/image";
-import { time } from "console";
-
 const skills = [
   {
-    name: "Web Development",
+    name: {
+      en: "Web Development",
+      id: "Pengembangan Web",
+    },
     skills: [
       "HTML",
       "CSS",
@@ -25,23 +26,38 @@ const skills = [
     ],
   },
   {
-    name: "Mobile Development",
+    name: {
+      en: "Mobile Development",
+      id: "Pengembangan Mobile",
+    },
     skills: ["React Native", "Flutter", "Java"],
   },
   {
-    name: "Database Management",
+    name: {
+      en: "Database Management",
+      id: "Manajemen Database",
+    },
     skills: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
   },
   {
-    name: "Tools",
+    name: {
+      en: "Tools",
+      id: "Peralatan (Tools)",
+    },
     skills: ["Git", "Docker"],
   },
   {
-    name: "Programming Languages",
+    name: {
+      en: "Programming Languages",
+      id: "Bahasa Pemrograman",
+    },
     skills: ["Python", "PHP", "JavaScript", "TypeScript", "C++"],
   },
   {
-    name: "Machine Learning",
+    name: {
+      en: "Machine Learning",
+      id: "Pembelajaran Mesin",
+    },
     skills: ["Python", "R", "TensorFlow", "PyTorch", "Scikit-learn"],
   },
 ];
@@ -75,19 +91,29 @@ const social_media = [
 
 const achievements = [
   {
-    title: "Gold Medal Pekan Inovasi Nasional 2025",
+    title: {
+      en: "Gold Medal Pekan Inovasi Nasional 2025",
+      id: "Medali Emas Pekan Inovasi Nasional 2025",
+    },
     organization: "Kementerian Riset dan Teknologi",
     date: "2025",
-    description:
-      "Awarded gold medal for innovative software development by making PANDU PEKA, a disaster management application with the five member team and advanced machine learning integration.",
+    description: {
+      en: "Awarded gold medal for innovative software development by making PANDU PEKA, a disaster management application with the five member team and advanced machine learning integration.",
+      id: "Dianugerahi medali emas untuk pengembangan perangkat lanak inovatif dengan membuat PANDU PEKA, aplikasi manajemen bencana bersama tim beranggotakan lima orang dan integrasi machine learning tingkat lanjut.",
+    },
     icon: "medal",
   },
   {
-    title: "Pendanaan PKM 2024",
+    title: {
+      en: "Pendanaan PKM 2024",
+      id: "Pendanaan PKM 2024",
+    },
     organization: "Kementerian Pendidikan dan Kebudayaan",
     date: "2024",
-    description:
-      "Received funding for the research project on Suarguard, with the four member team, an application with voice recognition and auto detect location",
+    description: {
+      en: "Received funding for the research project on Suarguard, with the four member team, an application with voice recognition and auto detect location.",
+      id: "Menerima pendanaan untuk proyek penelitian Suarguard bersama tim beranggotakan empat orang, aplikasi dengan pengenalan suara dan deteksi lokasi otomatis.",
+    },
     icon: "trophy",
   },
 ];
@@ -95,105 +121,227 @@ const achievements = [
 const experiences = [
   {
     name: "Prosesin ID",
-    status: "Internship",
+    status: {
+      en: "Internship",
+      id: "Magang",
+    },
     position: "Fullstack Programmer (Website)",
-    duration: "March 2025 - August 2025",
-    job_description:
-      "Assisted in the development of web applications using React, Laravel, Vue JS and Next JS",
+    duration: {
+      en: "March 2025 - August 2025",
+      id: "Maret 2025 - Agustus 2025",
+    },
+    job_description: {
+      en: "Assisted in the development of web applications using React, Laravel, Vue JS and Next JS",
+      id: "Membantu dalam pengembangan aplikasi web menggunakan React, Laravel, Vue JS, dan Next JS",
+    },
   },
   {
     name: "Gasgawe",
-    status: "Internship",
-    duration: "July 2025 - Present",
+    status: {
+      en: "Internship",
+      id: "Magang",
+    },
+    duration: {
+      en: "July 2025 - Present",
+      id: "Juli 2025 - Sekarang",
+    },
     position: "Fullstack Programmer (Mobile)",
-    job_description:
-      "Assisted in the development of mobile applications using Laravel in Backend and Flutter",
+    job_description: {
+      en: "Assisted in the development of mobile applications using Laravel in Backend and Flutter",
+      id: "Membantu dalam pengembangan aplikasi mobile menggunakan Laravel di Backend dan Flutter",
+    },
   },
   {
     name: "Freelance",
-    status: "Part Time",
-    duration: "August 2025 - Present",
+    status: {
+      en: "Part Time",
+      id: "Paruh Waktu",
+    },
+    duration: {
+      en: "August 2025 - Present",
+      id: "Agustus 2025 - Sekarang",
+    },
     position: "Software Developer",
-    job_description:
-      "Developing various software applications (website, mobile) on a freelance basis",
+    job_description: {
+      en: "Developing various software applications (website, mobile) on a freelance basis",
+      id: "Mengembangkan berbagai aplikasi perangkat lunak (website, mobile) secara freelance",
+    },
   },
 ];
 
 const projects = [
   {
-    name: "Flight Booking Ticket",
+    name: "PANDU PEKA",
     timeline: 2025,
-    description:
-      "A web application for booking flight tickets using Vue JS in Frontend and Laravel in Backend",
-  },
-  {
-    name: "Montana Machine",
-    timeline: 2025,
-    description:
-      "A web application for managing machine and heavy equipment e-commerce using React in Frontend and Laravel in Backend",
-  },
-
-  {
-    name: "Suarguard",
-    timeline: 2025,
-    description:
-      "A mobile application focused on sexual harassment prevention and protection. Victims can send emergency signals to dedicated task forces for immediate assistance when facing threats. Developed using Java for the mobile platform.",
+    description: {
+      en: "A disaster management application designed to assist both rescue teams and communities during natural disaster evacuations. The app provides real-time disaster information, evacuation guidance, and integrates machine learning models for prediction. Built with Flutter for the mobile frontend, Flask and FastAPI for the backend and ML logic, and Django for the web-based admin dashboard.",
+      id: "Aplikasi manajemen bencana yang dirancang untuk membantu tim penyelamat dan masyarakat selama evakuasi bencana alam. Aplikasi ini menyediakan informasi bencana real-time, panduan evakuasi, dan mengintegrasikan model machine learning untuk prediksi. Dibangun dengan Flutter untuk frontend mobile, Flask dan FastAPI untuk backend dan logika ML, serta Django untuk dashboard admin berbasis web.",
+    },
+    github: "https://github.com/R26raihan/Pekan_inovasi2025",
   },
   {
     name: "Cuan Limbah Apps",
     timeline: 2025,
-    description:
-      "A mobile application for waste-to-points exchange, where users can deposit waste at collection centers and receive reward points stored in the app for future use. Developed as a mobile-first solution.",
+    description: {
+      en: "A mobile application for waste-to-points exchange, where users can deposit waste at collection centers and receive reward points stored in the app for future use. Developed as a mobile-first solution.",
+      id: "Aplikasi mobile untuk penukaran sampah menjadi poin, di mana pengguna dapat menyetor sampah di pusat pengumpulan dan mendapatkan poin reward yang disimpan di aplikasi untuk digunakan di masa mendatang. Dikembangkan sebagai solusi mobile-first.",
+    },
+    github: "https://github.com/Posma-Pakpahan/projekdesoo",
   },
   {
     name: "Juravest",
     timeline: 2025,
-    description:
-      "A web platform that connects MSMEs (Micro, Small, and Medium Enterprises) with potential investors. It facilitates funding opportunities, business visibility, and investment matching. Built with React for the frontend and Laravel for the backend.",
+    description: {
+      en: "A web platform that connects MSMEs (Micro, Small, and Medium Enterprises) with potential investors. It facilitates funding opportunities, business visibility, and investment matching. Built with React for the frontend and Laravel for the backend.",
+      id: "Platform web yang menghubungkan UMKM (Usaha Mikro, Kecil, dan Menengah) dengan investor potensial. Memfasilitasi peluang pendanaan, visibilitas bisnis, dan pencocokan investasi. Dibangun dengan React untuk frontend dan Laravel untuk backend.",
+    },
+    github: "https://github.com/claudio-nehemia/JuraVest",
   },
   {
     name: "Bebas Cetak Indonesia",
     timeline: 2025,
-    description:
-      "A web application for managing clothing printing services and clothes e-commerce using Blade in Frontend and Laravel in Backend",
+    description: {
+      en: "A web application for managing clothing printing services and clothes e-commerce using Blade in Frontend and Laravel in Backend.",
+      id: "Aplikasi web untuk mengelola layanan cetak pakaian dan e-commerce pakaian menggunakan Blade di Frontend dan Laravel di Backend.",
+    },
+    github: "https://github.com/Vzooms/bebas_cetak_indonesia",
   },
   {
     name: "Simfan",
     timeline: 2025,
-    description:
-      "A web application for managing deposit loans, enabling users to borrow or manage their deposit-based finances in a secure and transparent way. Developed using Next.js for modern and scalable web experience.",
+    description: {
+      en: "A web application for managing deposit loans, enabling users to borrow or manage their deposit-based finances in a secure and transparent way. Developed using Next.js for modern and scalable web experience.",
+      id: "Aplikasi web untuk mengelola pinjaman simpanan, memungkinkan pengguna meminjam atau mengelola keuangan berbasis simpanan mereka dengan cara yang aman dan transparan. Dikembangkan menggunakan Next.js untuk pengalaman web modern dan skalabel.",
+    },
+    github: "https://github.com/Traasa/simfan-compro",
   },
   {
     name: "Mauk Pintar Website",
     timeline: 2025,
-    description:
-      "A web catalog application showcasing recycled products, aiming to promote sustainability and eco-friendly practices. Developed using React for the frontend and Laravel for the backend.",
+    description: {
+      en: "A web catalog application showcasing recycled products, aiming to promote sustainability and eco-friendly practices. Developed using React for the frontend and Laravel for the backend.",
+      id: "Aplikasi katalog web yang menampilkan produk daur ulang, bertujuan untuk mempromosikan keberlanjutan dan praktik ramah lingkungan. Dikembangkan menggunakan React untuk frontend dan Laravel untuk backend.",
+    },
+    github: "https://github.com/goprobisnis-id/MaukProject",
   },
   {
-    name: "PANDU PEKA",
+    name: "Montana Machine",
     timeline: 2025,
-    description:
-      "A disaster management application designed to assist both rescue teams and communities during natural disaster evacuations. The app provides real-time disaster information, evacuation guidance, and integrates machine learning models for prediction. Built with Flutter for the mobile frontend, Flask and FastAPI for the backend and ML logic, and Django for the web-based admin dashboard.",
+    description: {
+      en: "A web application for managing machine and heavy equipment e-commerce using React in Frontend and Laravel in Backend.",
+      id: "Aplikasi web untuk mengelola e-commerce mesin dan alat berat menggunakan React di Frontend dan Laravel di Backend.",
+    },
+    github: "https://github.com/Traasa/montana",
   },
   {
     name: "Retail Management System",
     timeline: 2025,
-    description:
-      "Sistem manajemen retail berbasis web yang dibangun menggunakan Laravel sebagai backend dan Blade untuk web admin. Fokus pada pengelolaan stok barang, distribusi, dan proses pengiriman agar operasional perusahaan retail lebih terstruktur dan efisien.",
+    description: {
+      en: "Web-based retail management system built using Laravel as backend and Blade for admin web. Focuses on stock management, distribution, and shipping processes to make retail company operations more structured and efficient.",
+      id: "Sistem manajemen retail berbasis web yang dibangun menggunakan Laravel sebagai backend dan Blade untuk web admin. Fokus pada pengelolaan stok barang, distribusi, dan proses pengiriman agar operasional perusahaan retail lebih terstruktur dan efisien.",
+    },
+    github: "https://github.com/visaramadhan/prosesin_retail",
   },
   {
     name: "Checkpoint Tracking Nadya Loka",
     timeline: 2026,
-    description:
-      "Sistem tracking kendaraan tambang secara real-time menggunakan Laravel sebagai backend dan Flutter untuk aplikasi mobile. Digunakan untuk memantau pergerakan truk, status checkpoint, dan meningkatkan transparansi operasional di area pertambangan.",
+    description: {
+      en: "Real-time mining vehicle tracking system using Laravel as backend and Flutter for mobile applications. Used to monitor truck movement, checkpoint status, and improve operational transparency in the mining area.",
+      id: "Sistem tracking kendaraan tambang secara real-time menggunakan Laravel sebagai backend dan Flutter untuk aplikasi mobile. Digunakan untuk memantau pergerakan truk, status checkpoint, dan meningkatkan transparansi operasional di area pertambangan.",
+    },
+    github: "https://github.com/Prosesin-ID/mining_backend",
   },
   {
     name: "Moey Interior Management Project",
     timeline: 2026,
-    description:
-      "Sistem manajemen project perusahaan interior berbasis multi-platform. Menggunakan Laravel sebagai backend, React untuk web admin, dan Flutter untuk aplikasi mobile. Project ini membantu pengelolaan timeline, progres pekerjaan, dan koordinasi tim pada perusahaan Moey Interior.",
+    description: {
+      en: "Multi-platform interior company project management system. Uses Laravel as backend, React for web admin, and Flutter for mobile application. This project helps manage timelines, work progress, and team coordination at Moey Interior company.",
+      id: "Sistem manajemen project perusahaan interior berbasis multi-platform. Menggunakan Laravel sebagai backend, React untuk web admin, dan Flutter untuk aplikasi mobile. Project ini membantu pengelolaan timeline, progres pekerjaan, dan koordinasi tim pada perusahaan Moey Interior.",
+    },
+    github: "https://github.com/claudio-nehemia/MoeyProject",
+  },
+  {
+    name: "KJA VMJ Papua ACMS",
+    timeline: 2026,
+    description: {
+      en: "An internal web application designed for Kantor Jasa Akuntan (KJA) VMJ Papua. ACMS (Attendance & Client Management System) streamlines employee attendance tracking and simplifies client relation management in a unified platform.",
+      id: "Aplikasi web internal yang dirancang untuk Kantor Jasa Akuntan (KJA) VMJ Papua. ACMS (Attendance & Client Management System) mempermudah pencatatan kehadiran karyawan dan menyederhanakan manajemen data klien dalam satu platform terpadu.",
+    },
+    github: "https://github.com/visaramadhan/sistem_hr_kjavjm_laravel",
+    image: "/images/projects/kjavmj.png",
+  },
+  {
+    name: "Desa Minanga Dua Website",
+    timeline: 2025,
+    description: {
+      en: "Official website for Minanga Dua Village, a coastal village in Pusomaen District, Southeast Minahasa, North Sulawesi. It provides information regarding the history, profile, demographics, and interactive mapping of the village. Built with Next.js.",
+      id: "Website resmi Desa Minanga Dua, sebuah desa pesisir di Kecamatan Pusomaen, Minahasa Tenggara, Sulawesi Utara. Menyediakan informasi sejarah, profil, demografi, dan peta interaktif wilayah desa. Dibangun menggunakan Next.js.",
+    },
+    github: "https://github.com/claudio-nehemia/desa-minanga",
+    image: "/images/projects/minanga.png",
   },
 ];
+
+const translations = {
+  en: {
+    hero: {
+      university: "Mercubuana University",
+      major: "Informatics Engineering",
+    },
+    about: {
+      title: "About Me",
+      subtitle: "Passionate Software Developer",
+      p1: "I am a dedicated software engineer with a strong background in full-stack development, mobile applications, and machine learning. With hands-on experience in various technologies and frameworks, I enjoy creating innovative solutions that make a positive impact.",
+      p2: "Currently pursuing my degree in Informatics with a GPA of 3.90, I am passionate about continuous learning and staying updated with the latest technologies in the software development world.",
+    },
+    skills: {
+      title: "Skills & Technologies",
+    },
+    experience: {
+      title: "Experience",
+    },
+    projects: {
+      title: "Projects",
+    },
+    achievements: {
+      title: "Achievements",
+    },
+    connect: {
+      title: "Connect With Me",
+      subtitle: "Let's connect and collaborate!",
+      desc: "Feel free to reach out through any of these platforms",
+    },
+  },
+  id: {
+    hero: {
+      university: "Universitas Mercu Buana",
+      major: "Teknik Informatika",
+    },
+    about: {
+      title: "Tentang Saya",
+      subtitle: "Developer Software yang Berdedikasi",
+      p1: "Saya adalah software engineer yang berdedikasi dengan latar belakang kuat dalam pengembangan full-stack, aplikasi mobile, dan machine learning. Dengan pengalaman langsung di berbagai teknologi dan framework, saya senang membuat solusi inovatif yang memberikan dampak positif.",
+      p2: "Saat ini sedang menempuh pendidikan di Teknik Informatika dengan IPK 3.90, saya sangat bersemangat untuk terus belajar dan mengikuti perkembangan teknologi terbaru di dunia pengembangan software.",
+    },
+    skills: {
+      title: "Keahlian & Teknologi",
+    },
+    experience: {
+      title: "Pengalaman",
+    },
+    projects: {
+      title: "Proyek",
+    },
+    achievements: {
+      title: "Prestasi",
+    },
+    connect: {
+      title: "Hubungi Saya",
+      subtitle: "Mari terhubung dan berkolaborasi!",
+      desc: "Jangan ragu untuk menghubungi saya melalui platform berikut",
+    },
+  },
+};
 
 // Advanced Floating geometric shapes with particles
 const FloatingShapes = () => {
@@ -313,7 +461,13 @@ const useScrollAnimation = () => {
   return [ref, isVisible] as const;
 };
 
-const Navbar = () => {
+const Navbar = ({
+  language,
+  setLanguage,
+}: {
+  language: "en" | "id";
+  setLanguage: (lang: "en" | "id") => void;
+}) => {
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -354,13 +508,13 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "achievements", label: "Achievements" },
-    { id: "social", label: "Connect" },
+    { id: "home", label: language === "en" ? "Home" : "Beranda" },
+    { id: "about", label: language === "en" ? "About" : "Tentang" },
+    { id: "skills", label: language === "en" ? "Skills" : "Keahlian" },
+    { id: "experience", label: language === "en" ? "Experience" : "Pengalaman" },
+    { id: "projects", label: language === "en" ? "Projects" : "Proyek" },
+    { id: "achievements", label: language === "en" ? "Achievements" : "Prestasi" },
+    { id: "social", label: language === "en" ? "Connect" : "Hubungi" },
   ];
 
   return (
@@ -380,7 +534,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-2">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map(({ id, label }) => (
               <button
                 key={id}
@@ -397,25 +551,74 @@ const Navbar = () => {
                 )}
               </button>
             ))}
+            <div className="flex items-center bg-gray-100/80 rounded-full p-0.5 border border-gray-200/50 shadow-sm ml-2">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all duration-300 ${
+                  language === "en"
+                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md scale-105"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("id")}
+                className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all duration-300 ${
+                  language === "id"
+                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md scale-105"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                ID
+              </button>
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
-          >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span
-                className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"}`}
-              ></span>
-              <span
-                className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
-              ></span>
-              <span
-                className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"}`}
-              ></span>
+          {/* Mobile Actions Container */}
+          <div className="flex items-center md:hidden space-x-2">
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center bg-gray-100/80 rounded-full p-0.5 border border-gray-200/50 shadow-sm">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold transition-all duration-300 ${
+                  language === "en"
+                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("id")}
+                className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold transition-all duration-300 ${
+                  language === "id"
+                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                ID
+              </button>
             </div>
-          </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
+            >
+              <div className="w-6 h-6 flex flex-col justify-center items-center">
+                <span
+                  className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"}`}
+                ></span>
+                <span
+                  className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
+                ></span>
+                <span
+                  className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"}`}
+                ></span>
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -597,10 +800,24 @@ const TypewriterText = ({
 };
 
 export default function Home() {
+  const [language, setLanguage] = useState<"en" | "id">("en");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("portfolio_lang") as "en" | "id";
+    if (savedLang === "en" || savedLang === "id") {
+      setLanguage(savedLang);
+    }
+  }, []);
+
+  const handleSetLanguage = (lang: "en" | "id") => {
+    setLanguage(lang);
+    localStorage.setItem("portfolio_lang", lang);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 relative">
       <FloatingShapes />
-      <Navbar />
+      <Navbar language={language} setLanguage={handleSetLanguage} />
 
       {/* Hero Section */}
       <section
@@ -632,17 +849,17 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 mb-4 sm:mb-6 animate-slide-up-delay-2">
             <div className="px-3 sm:px-4 py-2 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-full border border-emerald-200 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
               <p className="text-sm sm:text-base text-gray-700 font-semibold">
-                GPA: 3.90
+                {language === "en" ? "GPA" : "IPK"}: 3.90
               </p>
             </div>
             <div className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full border border-blue-200 transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
               <p className="text-sm sm:text-base text-gray-700 font-medium">
-                Mercubuana University
+                {translations[language].hero.university}
               </p>
             </div>
           </div>
           <p className="text-sm sm:text-base text-gray-600 animate-slide-up-delay-3 font-medium">
-            Informatics Engineering
+            {translations[language].hero.major}
           </p>
         </div>
       </section>
@@ -653,7 +870,7 @@ export default function Home() {
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <SectionTitle>About Me</SectionTitle>
+          <SectionTitle>{translations[language].about.title}</SectionTitle>
           <AnimatedCard className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
               <div className="relative group order-2 md:order-1">
@@ -665,20 +882,13 @@ export default function Home() {
               </div>
               <div className="space-y-3 sm:space-y-4 order-1 md:order-2">
                 <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Passionate Software Developer
+                  {translations[language].about.subtitle}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                  I am a dedicated software engineer with a strong background in
-                  full-stack development, mobile applications, and machine
-                  learning. With hands-on experience in various technologies and
-                  frameworks, I enjoy creating innovative solutions that make a
-                  positive impact.
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+                  {translations[language].about.p1}
                 </p>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                  Currently pursuing my degree in Informatics with a GPA of
-                  3.90, I am passionate about continuous learning and staying
-                  updated with the latest technologies in the software
-                  development world.
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+                  {translations[language].about.p2}
                 </p>
               </div>
             </div>
@@ -692,7 +902,7 @@ export default function Home() {
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <SectionTitle>Skills & Technologies</SectionTitle>
+          <SectionTitle>{translations[language].skills.title}</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {skills.map((category, index) => (
               <AnimatedCard
@@ -703,13 +913,13 @@ export default function Home() {
                 <div className="mb-3 sm:mb-4 relative group">
                   <ImagePlaceholder
                     className="w-full h-20 sm:h-24 md:h-28 shadow-md transform transition-all duration-500 group-hover:scale-105"
-                    alt={`${category.name} Icon`}
-                    src={`/images/skills/${category.name.toLowerCase().replace(/\s+/g, "-")}.jpg`}
+                    alt={`${category.name[language]} Icon`}
+                    src={`/images/skills/${category.name.en.toLowerCase().replace(/\s+/g, "-")}.jpg`}
                   />
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-200 to-purple-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                 </div>
                 <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-gray-800">
-                  {category.name}
+                  {category.name[language]}
                 </h3>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {category.skills.map((skill, skillIndex) => (
@@ -732,7 +942,7 @@ export default function Home() {
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <SectionTitle>Experience</SectionTitle>
+          <SectionTitle>{translations[language].experience.title}</SectionTitle>
           <div className="space-y-4 sm:space-y-6">
             {experiences.map((exp, index) => (
               <AnimatedCard
@@ -755,17 +965,17 @@ export default function Home() {
                         {exp.name}
                       </h3>
                       <span className="px-2 sm:px-3 py-1 bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 rounded-full text-xs font-medium border border-emerald-200 transform hover:scale-105 transition-all duration-300 w-fit">
-                        {exp.status}
+                        {exp.status[language]}
                       </span>
                     </div>
                     <p className="text-base sm:text-lg text-gray-700 mb-1 font-semibold">
                       {exp.position}
                     </p>
                     <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 font-medium">
-                      {exp.duration}
+                      {exp.duration[language]}
                     </p>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                      {exp.job_description}
+                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium">
+                      {exp.job_description[language]}
                     </p>
                   </div>
                 </div>
@@ -781,34 +991,49 @@ export default function Home() {
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <SectionTitle>Projects</SectionTitle>
+          <SectionTitle>{translations[language].projects.title}</SectionTitle>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {projects.map((project, index) => (
               <AnimatedCard
                 key={index}
-                className="h-full hover:shadow-xl group"
+                className="flex flex-col h-full hover:shadow-xl group"
                 delay={index * 100}
               >
-                <div className="mb-3 sm:mb-4 relative overflow-hidden rounded-xl">
-                  <ImagePlaceholder
-                    className="w-full object-contain shadow-md transform transition-all duration-700 group-hover:scale-110"
-                    alt={`${project.name} Screenshot`}
-                    src={`/images/projects/${project.name.toLowerCase().replace(/\s+/g, "-")}.jpg`}
-                  />
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-200 to-blue-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div className="flex-grow">
+                  <div className="mb-3 sm:mb-4 relative overflow-hidden rounded-xl">
+                    <ImagePlaceholder
+                      className="w-full object-contain shadow-md transform transition-all duration-700 group-hover:scale-110"
+                      alt={`${project.name} Screenshot`}
+                      src={project.image || `/images/projects/${project.name.toLowerCase().replace(/\s+/g, "-")}.jpg`}
+                    />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-200 to-blue-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-800">
+                      {project.name}
+                    </h3>
+                    <span className="px-2 py-1 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 rounded-full text-xs font-medium border border-cyan-200 transform hover:scale-105 transition-all duration-300 w-fit">
+                      {project.timeline}
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium">
+                    {project.description[language]}
+                  </p>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <h3 className="text-base sm:text-lg font-bold text-gray-800">
-                    {project.name}
-                  </h3>
-                  <span className="px-2 py-1 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 rounded-full text-xs font-medium border border-cyan-200 transform hover:scale-105 transition-all duration-300 w-fit">
-                    {project.timeline}
-                  </span>
-                </div>
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                  {project.description}
-                </p>
+                {project.github && (
+                  <div className="mt-4 pt-3 border-t border-gray-100 flex justify-end">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 text-white rounded-lg text-xs font-semibold hover:bg-gray-850 hover:scale-105 transition-all duration-300 shadow-sm"
+                    >
+                      <FaGithub className="text-sm animate-pulse" />
+                      {language === "en" ? "View on GitHub" : "Lihat di GitHub"}
+                    </a>
+                  </div>
+                )}
               </AnimatedCard>
             ))}
           </div>
@@ -816,13 +1041,12 @@ export default function Home() {
       </section>
 
       {/* Achievements Section */}
-      {/* Achievements Section */}
       <section
         id="achievements"
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <SectionTitle>Achievements</SectionTitle>
+          <SectionTitle>{translations[language].achievements.title}</SectionTitle>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {achievements.map((achievement, index) => (
               <AnimatedCard
@@ -833,8 +1057,8 @@ export default function Home() {
                 <div className="mb-3 sm:mb-4 relative overflow-hidden rounded-xl">
                   <ImagePlaceholder
                     className="w-full max-h-80 object-contain shadow-md transform transition-all duration-700 group-hover:scale-110 bg-white p-2 rounded-lg"
-                    alt={`${achievement.title} Certificate`}
-                    src={`/images/achievements/${achievement.title.toLowerCase().replace(/\s+/g, "-")}.jpg`}
+                    alt={`${achievement.title[language]} Certificate`}
+                    src={`/images/achievements/${achievement.title.en.toLowerCase().replace(/\s+/g, "-")}.jpg`}
                   />
                   <div className="absolute -inset-1 bg-gradient-to-r from-yellow-200 to-orange-300 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -849,7 +1073,7 @@ export default function Home() {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
                       <h3 className="text-base sm:text-lg font-bold text-gray-800">
-                        {achievement.title}
+                        {achievement.title[language]}
                       </h3>
                       <span className="px-2 py-1 bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-700 rounded-full text-xs font-medium border border-yellow-200 transform hover:scale-105 transition-all duration-300 w-fit">
                         {achievement.date}
@@ -858,8 +1082,8 @@ export default function Home() {
                     <p className="text-sm sm:text-base text-blue-600 font-semibold mb-1 sm:mb-2">
                       {achievement.organization}
                     </p>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                      {achievement.description}
+                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium">
+                      {achievement.description[language]}
                     </p>
                   </div>
                 </div>
@@ -875,14 +1099,14 @@ export default function Home() {
         className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <SectionTitle>Connect With Me</SectionTitle>
+          <SectionTitle>{translations[language].connect.title}</SectionTitle>
           <AnimatedCard className="max-w-3xl mx-auto">
             <div className="text-center mb-4 sm:mb-6">
               <p className="text-base sm:text-lg text-gray-700 font-medium">
-                Let's connect and collaborate!
+                {translations[language].connect.subtitle}
               </p>
               <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                Feel free to reach out through any of these platforms
+                {translations[language].connect.desc}
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
@@ -929,7 +1153,7 @@ export default function Home() {
       <footer className="py-8 sm:py-12 px-4 sm:px-6 border-t border-gray-200/50 bg-white/60 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-xs sm:text-sm text-gray-600 font-medium">
-            © 2025 Claudio Nehemia Panggabean. All rights reserved.
+            © 2025 Claudio Nehemia Panggabean. {language === "en" ? "All rights reserved." : "Semua hak cipta dilindungi."}
           </p>
         </div>
       </footer>
